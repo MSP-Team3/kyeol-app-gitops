@@ -1,0 +1,34 @@
+# Saleor Base: Ingress (Placeholder)
+# 환경별 오버레이에서 호스트, 인증서 ARN 설정
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kyeol-ingress
+  namespace: kyeol
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    # 인증서 ARN은 오버레이에서 설정
+    # alb.ingress.kubernetes.io/certificate-arn: <ACM_ARN>
+    # ExternalDNS hostname은 오버레이에서 설정
+    # external-dns.alpha.kubernetes.io/hostname: <HOSTNAME>
+    # WAF ARN은 오버레이에서 설정 (terraform output waf_web_acl_arn)
+    # alb.ingress.kubernetes.io/wafv2-acl-arn: <WAF_ARN>
+  labels:
+    app.kubernetes.io/part-of: saleor
+spec:
+  rules:
+    - host: "placeholder.msp-g1.click"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: storefront-svc
+                port:
+                  number: 3000
