@@ -1,0 +1,9 @@
+# Saleor Base: Namespace
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kyeol
+  labels:
+    app.kubernetes.io/name: kyeol
+    app.kubernetes.io/part-of: saleor

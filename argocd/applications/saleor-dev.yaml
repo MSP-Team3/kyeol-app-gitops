@@ -1,0 +1,28 @@
+# ArgoCD Application: Saleor DEV
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: saleor-dev
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: kyeol-apps
+
+  source:
+    repoURL: https://github.com/YOUR_ORG/kyeol-app-gitops.git  # TODO: 실제 레포로 변경
+    targetRevision: main
+    path: apps/saleor/overlays/dev
+
+  destination:
+    # DEV 클러스터 (MGMT에서 외부 클러스터로 등록 필요)
+    server: https://kubernetes.default.svc  # TODO: DEV 클러스터 URL로 변경
+    namespace: kyeol
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
