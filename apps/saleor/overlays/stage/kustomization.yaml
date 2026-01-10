@@ -1,0 +1,33 @@
+# Saleor Storefront - STAGE Overlay
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: kyeol
+
+resources:
+  - ../../base
+  - patches/hpa-patch.yaml
+
+labels:
+  - pairs:
+      environment: stage
+    includeSelectors: false
+
+images:
+  - name: ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-storefront
+    newName: 827913617839.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-stage-storefront
+    newTag: stage-latest
+
+patches:
+  - target:
+      kind: Deployment
+      name: storefront
+    path: patches/replicas-patch.yaml
+  - target:
+      kind: Ingress
+      name: kyeol-ingress
+    path: patches/ingress-patch.yaml
+  - target:
+      kind: Deployment
+      name: storefront
+    path: patches/resources-patch.yaml
