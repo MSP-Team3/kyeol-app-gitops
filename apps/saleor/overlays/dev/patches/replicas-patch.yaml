@@ -1,0 +1,21 @@
+# Saleor DEV Overlay: Replicas/Resources Patch
+# DEV 환경 리소스 설정
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront
+  namespace: kyeol
+spec:
+  replicas: 1  # DEV는 1개
+  template:
+    spec:
+      containers:
+        - name: storefront
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 300m
+              memory: 384Mi

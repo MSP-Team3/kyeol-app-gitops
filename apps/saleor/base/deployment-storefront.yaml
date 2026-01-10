@@ -1,0 +1,53 @@
+# Saleor Base: Storefront Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront
+  namespace: kyeol
+  labels:
+    app: storefront
+    app.kubernetes.io/name: storefront
+    app.kubernetes.io/part-of: saleor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storefront
+  template:
+    metadata:
+      labels:
+        app: storefront
+        app.kubernetes.io/name: storefront
+    spec:
+      containers:
+        - name: storefront
+          # ECR 이미지 URL (placeholder)
+          image: ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-storefront:latest
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          env:
+            - name: NEXT_PUBLIC_API_URI
+              value: "https://origin-dev-kyeol.msp-g1.click/graphql/"
+            - name: NEXT_PUBLIC_STOREFRONT_URL
+              value: "https://origin-dev-kyeol.msp-g1.click"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5

@@ -1,0 +1,21 @@
+# Saleor DEV Overlay: Kustomization
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: kyeol
+
+resources:
+  - ../../base
+
+patches:
+  - path: patches/ingress-patch.yaml
+  - path: patches/replicas-patch.yaml
+
+images:
+  - name: ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-storefront
+    newName: 827913617839.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-storefront
+    newTag: dev-latest
+
+commonLabels:
+  environment: dev

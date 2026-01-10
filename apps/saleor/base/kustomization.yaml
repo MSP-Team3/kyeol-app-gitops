@@ -1,0 +1,16 @@
+# Saleor Base: Kustomization
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: kyeol
+
+resources:
+  - namespace.yaml
+  - deployment-storefront.yaml
+  - service-storefront.yaml
+  - ingress.yaml
+
+commonLabels:
+  app.kubernetes.io/part-of: saleor
+  app.kubernetes.io/managed-by: kustomize
