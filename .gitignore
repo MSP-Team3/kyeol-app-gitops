@@ -1,0 +1,19 @@
+# App GitOps 산출물
+
+# 시크릿 (Git에 저장 금지)
+**/secrets/*.yaml
+!**/secrets/README.md
+
+# 빌드 산출물
+*.rendered
+*.out
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
