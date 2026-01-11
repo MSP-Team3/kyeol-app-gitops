@@ -13,7 +13,7 @@ spec:
     targetRevision: main
     path: apps/saleor/overlays/stage
   destination:
-    server: https://kubernetes.default.svc  # STAGE 클러스터 연결 필요
+    server: https://kubernetes.default.svc  # STAGE ?�러?�터 ?�결 ?�요
     namespace: kyeol
   syncPolicy:
     automated:
