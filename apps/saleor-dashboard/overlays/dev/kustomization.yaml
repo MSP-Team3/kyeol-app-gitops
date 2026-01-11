@@ -11,8 +11,8 @@ commonLabels:
   environment: dev
 
 images:
-  - name: ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-dashboard
-    newName: 827913617839.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-dashboard
+  - name: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-dashboard
+    newName: 000000000000.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-dashboard  # TODO: Replace with actual account ID
     newTag: dev-latest
 
 patches:

@@ -1,4 +1,4 @@
-# Saleor Dashboard Ingress (base - 오버레이에서 패치)
+# Saleor Dashboard Ingress (base - patched by overlays)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: dashboard-kyeol.msp-g1.click
+    - host: dashboard.kyeol.click
       http:
         paths:
           - path: /

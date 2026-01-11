@@ -22,16 +22,16 @@ spec:
     spec:
       containers:
         - name: storefront
-          # ECR 이미지 URL (placeholder)
-          image: ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/min-kyeol-storefront:latest
+          # ECR image URL (placeholder) - replaced by overlay images
+          image: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront:latest
           ports:
             - containerPort: 3000
               protocol: TCP
           env:
             - name: NEXT_PUBLIC_API_URI
-              value: "https://origin-dev-kyeol.msp-g1.click/graphql/"
+              value: "https://origin-dev.kyeol.click/graphql/"  # TODO: Replace per environment in overlay
             - name: NEXT_PUBLIC_STOREFRONT_URL
-              value: "https://origin-dev-kyeol.msp-g1.click"
+              value: "https://origin-dev.kyeol.click"  # TODO: Replace per environment in overlay
           resources:
             requests:
               cpu: 100m
