@@ -15,7 +15,7 @@ labels:
 
 images:
   - name: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront
-    newName: 000000000000.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-prod-storefront  # TODO: Replace with actual account ID
+    newName: 827913617839.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-prod-storefront
     newTag: prod-latest
 
 patches:
