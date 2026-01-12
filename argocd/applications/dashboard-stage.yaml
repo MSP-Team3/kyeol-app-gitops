@@ -13,7 +13,7 @@ spec:
     targetRevision: main
     path: apps/saleor-dashboard/overlays/stage
   destination:
-    server: https://kubernetes.default.svc  # STAGE 클러스터
+    server: https://kubernetes.default.svc  # STAGE ?�러?�터
     namespace: kyeol
   syncPolicy:
     automated:

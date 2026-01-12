@@ -4,11 +4,11 @@ kind: Ingress
 metadata:
   name: dashboard-ingress
   annotations:
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-2:827913617839:certificate/d24a33aa-1959-4991-b281-607d5be0d988
-    external-dns.alpha.kubernetes.io/hostname: dev-dashboard-kyeol.msp-g1.click
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:000000000000:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  # TODO: Replace with actual ARN
+    external-dns.alpha.kubernetes.io/hostname: dev-dashboard.kyeol.click
 spec:
   rules:
-    - host: dev-dashboard-kyeol.msp-g1.click
+    - host: dev-dashboard.kyeol.click
       http:
         paths:
           - path: /

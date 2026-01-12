@@ -1,4 +1,4 @@
-# Resources Patch - PROD (프로덕션급)
+# Resources Patch - PROD (?�로?�션�?
 apiVersion: apps/v1
 kind: Deployment
 metadata:

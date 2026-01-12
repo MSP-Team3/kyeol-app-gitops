@@ -13,7 +13,7 @@ spec:
     targetRevision: main
     path: apps/saleor-dashboard/overlays/dev
   destination:
-    server: https://kubernetes.default.svc  # DEV 클러스터
+    server: https://kubernetes.default.svc  # DEV ?�러?�터
     namespace: kyeol
   syncPolicy:
     automated:

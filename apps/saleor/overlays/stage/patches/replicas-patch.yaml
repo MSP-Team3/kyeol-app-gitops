@@ -1,4 +1,4 @@
-# Replica Patch - STAGE (DEV보다 상향)
+# Replica Patch - STAGE (DEV보다 ?�향)
 apiVersion: apps/v1
 kind: Deployment
 metadata:

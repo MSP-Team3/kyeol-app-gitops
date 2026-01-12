@@ -1,5 +1,5 @@
 # Saleor DEV Overlay: Ingress Patch
-# origin-dev-kyeol.msp-g1.click 도메인 설정
+# origin-dev.kyeol.click domain settings
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -7,37 +7,18 @@ metadata:
   name: kyeol-ingress
   namespace: kyeol
   annotations:
-    # ✅ ALB Ingress Controller 사용
     kubernetes.io/ingress.class: alb
-
-    # ✅ 인터넷 공개(DEV 기준). 내부용이면 internal로 변경
     alb.ingress.kubernetes.io/scheme: internet-facing
-
-    # ✅ EKS 표준: Pod로 직접 라우팅
     alb.ingress.kubernetes.io/target-type: ip
-
-    # ✅ 80/443 리스너 생성
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80},{"HTTPS":443}]'
-
-    # ✅ HTTP → HTTPS 강제 리다이렉트
     alb.ingress.kubernetes.io/ssl-redirect: "443"
-
-    # ✅ ACM 인증서 ARN (ap-southeast-2) - 실제 ISSUED 된 와일드카드 ACM 적용
-    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-southeast-2:827913617839:certificate/d24a33aa-1959-4991-b281-607d5be0d988"
-
-    # ✅ ExternalDNS가 이 hostname으로 Route53 레코드 생성
-    external-dns.alpha.kubernetes.io/hostname: "origin-dev-kyeol.msp-g1.click"
-
-    # ✅ WAF 연결 (terraform output waf_web_acl_arn으로 조회)
-    # ALB 재생성 시 자동으로 WAF 재연결됨
-    alb.ingress.kubernetes.io/wafv2-acl-arn: ""  # TODO: terraform output waf_web_acl_arn 값 입력
-
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:000000000000:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  # TODO: Replace with actual ARN
+    external-dns.alpha.kubernetes.io/hostname: "origin-dev.kyeol.click"
+    alb.ingress.kubernetes.io/wafv2-acl-arn: ""  # TODO: terraform output waf_web_acl_arn
 spec:
-  # ✅ (권장) 명시적으로 IngressClass 지정 (클러스터 정책에 따라 kubernetes.io/ingress.class만으로도 동작)
   ingressClassName: alb
-
   rules:
-    - host: origin-dev-kyeol.msp-g1.click
+    - host: origin-dev.kyeol.click
       http:
         paths:
           - path: /
