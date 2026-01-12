@@ -14,7 +14,7 @@ patches:
 
 images:
   - name: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront
-    newName: 000000000000.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront  # TODO: Replace with actual account ID
+    newName: 827913617839.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-dev-storefront
     newTag: dev-latest
 
 commonLabels:
