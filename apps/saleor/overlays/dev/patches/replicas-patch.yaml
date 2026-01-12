@@ -1,5 +1,5 @@
 # Saleor DEV Overlay: Replicas/Resources Patch
-# DEV ?˜ê²½ ë¦¬ì†Œ???¤ì •
+# DEV environment resource settings
 
 apiVersion: apps/v1
 kind: Deployment
@@ -7,7 +7,7 @@ metadata:
   name: storefront
   namespace: kyeol
 spec:
-  replicas: 1  # DEV??1ê°?
+  replicas: 1  # DEV uses 1 replica
   template:
     spec:
       containers:

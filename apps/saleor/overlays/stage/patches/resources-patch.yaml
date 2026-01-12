@@ -1,4 +1,4 @@
-# Resources Patch - STAGE (DEV보다 ?�향)
+# Resources Patch - STAGE (higher than DEV)
 apiVersion: apps/v1
 kind: Deployment
 metadata:

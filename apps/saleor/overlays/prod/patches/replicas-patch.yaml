@@ -1,4 +1,4 @@
-# Replica Patch - PROD (?„ë¡œ?•ì…˜ê¸?
+# Replica Patch - PROD (Production)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
