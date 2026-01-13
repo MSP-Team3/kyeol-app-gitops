@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: dashboard-ingress
   annotations:
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:827913617839:certificate/a0840b21-4f11-4aba-9d0a-acd768c1a1b6
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:827913617839:certificate/95195666-9195-4cba-9d0a-acd768c1a1b6
     external-dns.alpha.kubernetes.io/hostname: dashboard-stage.kyeol.click
 spec:
   rules:
