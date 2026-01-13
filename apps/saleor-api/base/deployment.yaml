@@ -22,8 +22,12 @@ spec:
           envFrom:
             - configMapRef:
                 name: saleor-api-env
-            - secretRef:
-                name: saleor-api-secret
+          env:
+            - name: RSA_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: saleor-api-secret
+                  key: RSA_PRIVATE_KEY
           resources:
             requests:
               cpu: 250m

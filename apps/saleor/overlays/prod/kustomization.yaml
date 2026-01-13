@@ -31,3 +31,8 @@ patches:
       kind: Deployment
       name: storefront
     path: patches/resources-patch.yaml
+
+  - target:
+      kind: Deployment
+      name: storefront
+    path: patches/env-patch.yaml
