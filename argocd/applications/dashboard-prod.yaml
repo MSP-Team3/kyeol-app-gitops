@@ -7,13 +7,13 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: kyeol-apps
+  project: default
   source:
     repoURL: https://github.com/mandoofu/kyeol-app-gitops.git
     targetRevision: main
     path: apps/saleor-dashboard/overlays/prod
   destination:
-    server: https://kubernetes.default.svc  # PROD ?´ëŸ¬?¤í„°
+    server: https://D706BE88F36A43CA4F590E9425BA6094.gr7.ap-northeast-2.eks.amazonaws.com  # PROD cluster
     namespace: kyeol
   syncPolicy:
     automated:
