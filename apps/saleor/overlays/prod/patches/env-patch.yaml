@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront
+spec:
+  template:
+    spec:
+      containers:
+        - name: storefront
+          env:
+            - name: NEXT_PUBLIC_API_URI
+              value: "https://api.kyeol.click/graphql/"
+            - name: NEXT_PUBLIC_STOREFRONT_URL
+              value: "https://kyeol.click"
