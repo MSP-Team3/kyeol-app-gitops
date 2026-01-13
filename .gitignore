@@ -3,6 +3,8 @@
 # 시크릿 (Git에 저장 금지)
 **/secrets/*.yaml
 !**/secrets/README.md
+**/env-prod.properties
+**/env-stage.properties
 
 # 빌드 산출물
 *.rendered
