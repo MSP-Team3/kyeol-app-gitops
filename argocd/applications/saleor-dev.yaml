@@ -16,8 +16,7 @@ spec:
     path: apps/saleor/overlays/dev
 
   destination:
-    # DEV ?대윭?ㅽ꽣 (MGMT?먯꽌 ?몃? ?대윭?ㅽ꽣濡??깅줉 ?꾩슂)
-    server: https://kubernetes.default.svc  # TODO: DEV ?대윭?ㅽ꽣 URL濡?蹂寃?
+    server: https://C53A5A8DFCEB4D6D41C8EB9655996281.gr7.ap-northeast-2.eks.amazonaws.com 
     namespace: kyeol
 
   syncPolicy:
