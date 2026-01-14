@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: saleor-api
+  namespace: kyeol
+  annotations:
+    # Explicitly set the correct ACM Certificate ARN to fix deployment error
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:827913617839:certificate/95195666-9195-4cba-9d0a-acd768c1a1b6
