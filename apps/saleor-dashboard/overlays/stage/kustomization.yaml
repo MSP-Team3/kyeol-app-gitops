@@ -30,3 +30,7 @@ patches:
       kind: Deployment
       name: dashboard
     path: patches/resources-patch.yaml
+  - target:
+      kind: Deployment
+      name: dashboard
+    path: patches/env-patch.yaml
