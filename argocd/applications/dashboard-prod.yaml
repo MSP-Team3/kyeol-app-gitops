@@ -1,4 +1,4 @@
-# ArgoCD Application - Saleor Dashboard PROD
+﻿# ArgoCD Application - Saleor Dashboard PROD
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mandoofu/kyeol-app-gitops.git
+    repoURL: https://github.com/MSP-Team3/kyeol-app-gitops.git
     targetRevision: main
     path: apps/saleor-dashboard/overlays/prod
   destination:

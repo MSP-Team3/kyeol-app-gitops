@@ -1,4 +1,4 @@
-# ArgoCD Application - Saleor Storefront PROD
+﻿# ArgoCD Application - Saleor Storefront PROD
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,13 +7,13 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: kyeol-apps
+  project: default
   source:
-    repoURL: https://github.com/mandoofu/kyeol-app-gitops.git
+    repoURL: https://github.com/MSP-Team3/kyeol-app-gitops.git
     targetRevision: main
     path: apps/saleor/overlays/prod
   destination:
-    server: https://kubernetes.default.svc  # PROD ?�러?�터 ?�결 ?�요
+    server: https://kubernetes.default.svc  # PROD ?대윭?ㅽ꽣 ?곌껐 ?꾩슂
     namespace: kyeol
   syncPolicy:
     automated:

@@ -1,4 +1,4 @@
-# ArgoCD Application: Saleor DEV
+﻿# ArgoCD Application: Saleor DEV
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -8,16 +8,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: kyeol-apps
+  project: default
 
   source:
-    repoURL: https://github.com/YOUR_ORG/kyeol-app-gitops.git  # TODO: ?�제 ?�포�?변�?
+    repoURL: https://github.com/MSP-Team3/kyeol-app-gitops.git
     targetRevision: main
     path: apps/saleor/overlays/dev
 
   destination:
-    # DEV ?�러?�터 (MGMT?�서 ?��? ?�러?�터�??�록 ?�요)
-    server: https://kubernetes.default.svc  # TODO: DEV ?�러?�터 URL�?변�?
+    # DEV ?대윭?ㅽ꽣 (MGMT?먯꽌 ?몃? ?대윭?ㅽ꽣濡??깅줉 ?꾩슂)
+    server: https://kubernetes.default.svc  # TODO: DEV ?대윭?ㅽ꽣 URL濡?蹂寃?
     namespace: kyeol
 
   syncPolicy:
