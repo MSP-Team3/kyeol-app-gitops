@@ -30,3 +30,7 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 2
+  - path: patches/ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: saleor-api
