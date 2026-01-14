@@ -1,20 +1,14 @@
-# Saleor DEV Overlay: Ingress Patch
-# origin-dev.kyeol.click domain settings
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: kyeol-ingress
-  namespace: kyeol
   annotations:
-    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:827913617839:certificate/95195666-9195-4cba-9d0a-acd768c1a1b6
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80},{"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: "443"
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:827913617839:certificate/95195666-9195-4cba-9d0a-acd768c1a1b6
     external-dns.alpha.kubernetes.io/hostname: "origin-dev.kyeol.click"
-    alb.ingress.kubernetes.io/wafv2-acl-arn: ""  # TODO: terraform output waf_web_acl_arn
 spec:
   ingressClassName: alb
   rules:
