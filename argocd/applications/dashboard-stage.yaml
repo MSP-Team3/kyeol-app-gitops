@@ -1,4 +1,4 @@
-# ArgoCD Application - Saleor Dashboard STAGE
+﻿# ArgoCD Application - Saleor Dashboard STAGE
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
