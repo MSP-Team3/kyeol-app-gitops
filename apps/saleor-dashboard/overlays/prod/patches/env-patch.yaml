@@ -10,3 +10,5 @@ spec:
           env:
             - name: API_URL
               value: "https://api.kyeol.click/graphql/"
+            - name: API_URI
+              value: "https://api.kyeol.click/graphql/"
