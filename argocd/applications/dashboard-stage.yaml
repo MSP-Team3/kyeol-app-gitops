@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mandoofu/kyeol-app-gitops.git
+    repoURL: https://github.com/MSP-Team3/kyeol-app-gitops.git
     targetRevision: main
     path: apps/saleor-dashboard/overlays/stage
   destination:
