@@ -8,5 +8,5 @@ spec:
       containers:
         - name: dashboard
           env:
-            - name: API_URI
+            - name: API_URL
               value: "https://api.kyeol.click/graphql/"
