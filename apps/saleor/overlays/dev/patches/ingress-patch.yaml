@@ -25,7 +25,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: dev-storefront-svc
+                name: storefront-svc
                 port:
                   number: 3000
     - host: dev.kyeol.click
@@ -35,6 +35,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: dev-storefront-svc
+                name: storefront-svc
                 port:
                   number: 3000
