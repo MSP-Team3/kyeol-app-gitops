@@ -13,7 +13,7 @@ spec:
     targetRevision: main
     path: apps/saleor/overlays/prod
   destination:
-    server: https://kubernetes.default.svc  # PROD ?대윭?ㅽ꽣 ?곌껐 ?꾩슂
+    server: https://kubernetes.default.svc
     namespace: kyeol
   syncPolicy:
     automated:
