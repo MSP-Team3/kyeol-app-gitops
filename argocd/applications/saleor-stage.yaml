@@ -13,7 +13,7 @@ spec:
     targetRevision: main
     path: apps/saleor/overlays/stage
   destination:
-    server: https://kubernetes.default.svc  # STAGE ?대윭?ㅽ꽣 ?곌껐 ?꾩슂
+    server: https://EC3C36350CAC3CE0A1C05048A34244E6.gr7.ap-northeast-2.eks.amazonaws.com  # STAGE cluster
     namespace: kyeol
   syncPolicy:
     automated:
