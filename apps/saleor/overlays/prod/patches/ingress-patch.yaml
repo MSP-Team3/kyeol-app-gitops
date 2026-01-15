@@ -43,3 +43,13 @@ spec:
                 name: storefront-svc
                 port:
                   number: 3000
+    - host: www.kyeol.click
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: storefront-svc
+                port:
+                  number: 3000
