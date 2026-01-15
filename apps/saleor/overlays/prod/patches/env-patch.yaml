@@ -8,7 +8,7 @@ spec:
       containers:
         - name: storefront
           env:
-            - name: NEXT_PUBLIC_API_URI
+            - name: NEXT_PUBLIC_SALEOR_API_URL
               value: "https://api.kyeol.click/graphql/"
             - name: NEXT_PUBLIC_STOREFRONT_URL
               value: "https://kyeol.click"
