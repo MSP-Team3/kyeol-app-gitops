@@ -12,5 +12,3 @@ spec:
               value: "https://api.kyeol.click/graphql/"
             - name: NEXT_PUBLIC_STOREFRONT_URL
               value: "https://kyeol.click"
-            - name: NODE_TLS_REJECT_UNAUTHORIZED
-              value: "0"
