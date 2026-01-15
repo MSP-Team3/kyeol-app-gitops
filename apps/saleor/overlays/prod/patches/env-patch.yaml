@@ -10,6 +10,8 @@ spec:
           env:
             - name: NEXT_PUBLIC_SALEOR_API_URL
               value: "https://api.kyeol.click/graphql/"
+            - name: NEXT_PUBLIC_API_URI
+              value: "https://api.kyeol.click/graphql/"
             - name: NODE_ENV
               value: "development"
             - name: NEXT_PUBLIC_STOREFRONT_URL
