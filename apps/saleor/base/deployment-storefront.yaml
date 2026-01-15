@@ -24,6 +24,7 @@ spec:
         - name: storefront
           # ECR image URL (placeholder) - replaced by overlay images
           image: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
               protocol: TCP
