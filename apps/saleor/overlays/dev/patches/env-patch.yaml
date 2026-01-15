@@ -1,4 +1,4 @@
-# Saleor PROD Overlay: Environment Variables Patch
+# Saleor DEV Overlay: Environment Variables Patch
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,6 +14,6 @@ spec:
             - name: NEXT_PUBLIC_SALEOR_API_URL
               value: "https://api.kyeol.click/graphql/"
             - name: NEXT_PUBLIC_STOREFRONT_URL
-              value: "https://kyeol.click"
+              value: "https://dev.kyeol.click"
             - name: NODE_ENV
-              value: "production"
+              value: "development"
