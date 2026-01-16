@@ -16,9 +16,16 @@ labels:
 images:
   - name: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront
     newName: 827913617839.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-prod-storefront
-    newTag: prod-latest
+    newTag: prod-291a40699d44a7f21f4e6b71c8b5f012381088f8
 
 patches:
+  - target:
+      kind: Deployment
+      name: storefront
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/imagePullPolicy
+        value: Always
   - target:
       kind: Deployment
       name: storefront
