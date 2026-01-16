@@ -35,3 +35,10 @@ spec:
                 name: saleor-api
                 port:
                   number: 80
+          - path: /thumbnail
+            pathType: Prefix
+            backend:
+              service:
+                name: saleor-api
+                port:
+                  number: 80
