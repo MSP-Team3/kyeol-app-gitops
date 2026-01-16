@@ -27,6 +27,11 @@ spec:
           env:
             - name: API_URI
               value: "https://storefront1.saleor.cloud/graphql/"
+            - name: GITOPS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: gitops-token
+                  key: GITOPS_TOKEN
           resources:
             requests:
               cpu: "100m"

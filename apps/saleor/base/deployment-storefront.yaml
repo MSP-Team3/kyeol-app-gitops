@@ -33,6 +33,11 @@ spec:
               value: "https://origin-dev.kyeol.click/graphql/"  # TODO: Replace per environment in overlay
             - name: NEXT_PUBLIC_STOREFRONT_URL
               value: "https://origin-dev.kyeol.click"  # TODO: Replace per environment in overlay
+            - name: GITOPS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: gitops-token
+                  key: GITOPS_TOKEN
           resources:
             requests:
               cpu: 100m
