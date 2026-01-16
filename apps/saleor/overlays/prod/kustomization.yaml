@@ -18,7 +18,7 @@ images:
     newTag: "3.22"
   - name: ACCOUNT_ID.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-storefront
     newName: 827913617839.dkr.ecr.ap-northeast-2.amazonaws.com/kyeol-prod-storefront
-    newTag: prod-5d9d23b9ec9cdac4b58937b9289252475df4b3f7
+    newTag: prod-latest
 
 patches:
   - target:
