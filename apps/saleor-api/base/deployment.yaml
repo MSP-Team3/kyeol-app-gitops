@@ -23,6 +23,8 @@ spec:
             - configMapRef:
                 name: saleor-api-env
           env:
+            - name: ALLOWED_HOSTS
+              value: "*"
             - name: RSA_PRIVATE_KEY
               valueFrom:
                 secretKeyRef:
