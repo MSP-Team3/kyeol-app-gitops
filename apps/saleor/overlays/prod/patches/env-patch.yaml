@@ -1,4 +1,5 @@
 # Saleor PROD Overlay: Environment Variables Patch
+# Trigger Sync: Fix Env Vars for 500 Error Analysis
 apiVersion: apps/v1
 kind: Deployment
 metadata:
