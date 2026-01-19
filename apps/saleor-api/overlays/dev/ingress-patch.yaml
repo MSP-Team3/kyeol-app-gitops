@@ -4,7 +4,7 @@ metadata:
   name: saleor-api
   namespace: kyeol
   annotations:
-    alb.ingress.kubernetes.io/group.name: "kyeol-ingress"
+    alb.ingress.kubernetes.io/group.name: "kyeol-dev-ingress"
 spec:
   rules:
     - host: api-dev.kyeol.click
