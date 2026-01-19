@@ -1,0 +1,32 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: kyeol
+
+resources:
+  - ../../base
+
+images:
+  - name: ghcr.io/saleor/saleor
+    newTag: "3.22"
+
+configMapGenerator:
+  - name: saleor-api-env
+    envs:
+      - env-stage.properties
+
+patches:
+  - target:
+      kind: Ingress
+      name: saleor-api
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: api-stage.kyeol.click
+  - target:
+      kind: Deployment
+      name: saleor-api
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2
