@@ -26,10 +26,6 @@ spec:
                   name: saleor-prod-secrets
                   key: RSA_PRIVATE_KEY
             # Additional env vars for ALB proxy handling
-            - name: MEDIA_URL
-              value: https://www.kyeol.click/media/
-            - name: AWS_S3_CUSTOM_DOMAIN
-              value: www.kyeol.click/media
             - name: SECURE_PROXY_SSL_HEADER
               value: HTTP_X_FORWARDED_PROTO,https
             - name: USE_X_FORWARDED_HOST
