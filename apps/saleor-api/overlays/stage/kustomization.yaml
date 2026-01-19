@@ -18,4 +18,5 @@ configMapGenerator:
 patchesStrategicMerge:
   - serviceaccount-patch.yaml
   - deployment-patch.yaml
+  - service-patch.yaml
   - ingress-patch.yaml
