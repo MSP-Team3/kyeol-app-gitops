@@ -19,4 +19,16 @@ patchesStrategicMerge:
   - serviceaccount-patch.yaml
   - deployment-patch.yaml
   - service-patch.yaml
-  - ingress-patch.yaml
+
+patches:
+  - target:
+      kind: Ingress
+      name: saleor-api
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: api-stage.kyeol.click
+  - path: ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: saleor-api

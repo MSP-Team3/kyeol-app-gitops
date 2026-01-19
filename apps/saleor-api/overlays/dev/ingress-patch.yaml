@@ -5,15 +5,3 @@ metadata:
   namespace: kyeol
   annotations:
     alb.ingress.kubernetes.io/group.name: "kyeol-dev-ingress"
-spec:
-  rules:
-    - host: api-dev.kyeol.click
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: saleor-api
-                port:
-                  name: http
