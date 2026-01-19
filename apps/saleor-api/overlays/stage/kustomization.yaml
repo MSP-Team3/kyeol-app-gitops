@@ -13,11 +13,7 @@ images:
 configMapGenerator:
   - name: saleor-api-env
     envs:
-      - env-prod.properties
-
-patchesStrategicMerge:
-  - patches/serviceaccount-patch.yaml
-  - patches/deployment-patch.yaml
+      - env-stage.properties
 
 patches:
   - target:
@@ -26,7 +22,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/rules/0/host
-        value: api.kyeol.click
+        value: api-stage.kyeol.click
   - target:
       kind: Deployment
       name: saleor-api
@@ -34,7 +30,3 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 2
-  - path: patches/ingress-patch.yaml
-    target:
-      kind: Ingress
-      name: saleor-api

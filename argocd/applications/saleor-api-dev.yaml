@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: saleor-api-dev
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/MSP-Team3/kyeol-app-gitops.git
+    targetRevision: main
+    path: apps/saleor-api/overlays/dev
+  destination:
+    server: https://C53A5A8DFCEB4D6D41C8EB9655996281.gr7.ap-northeast-2.eks.amazonaws.com  # DEV cluster
+    namespace: kyeol
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
