@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: saleor-api
+  namespace: kyeol
   annotations:
     alb.ingress.kubernetes.io/group.name: "kyeol-ingress"
 spec:
