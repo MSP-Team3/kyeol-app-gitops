@@ -6,3 +6,4 @@ metadata:
   annotations:
     # Explicitly set the correct ACM Certificate ARN to fix deployment error
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:827913617839:certificate/95195666-9195-4cba-9d0a-acd768c1a1b6
+    alb.ingress.kubernetes.io/group.name: "kyeol-prod-ingress"
