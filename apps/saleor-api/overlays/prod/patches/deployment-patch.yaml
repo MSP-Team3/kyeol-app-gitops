@@ -8,6 +8,7 @@ spec:
     spec:
       containers:
         - name: api
+          imagePullPolicy: Always
           resources:
             requests:
               cpu: "1000m"
