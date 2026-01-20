@@ -8,6 +8,13 @@ spec:
     spec:
       containers:
         - name: api
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "1000m"
+              memory: "2Gi"
           env:
             # Inject sensitive values from Secret
             - name: DATABASE_URL
