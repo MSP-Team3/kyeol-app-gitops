@@ -1,16 +1,13 @@
 # HPA Patch - STAGE
+# Base의 HPA 설정을 STAGE 환경에 맞게 오버라이드
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: storefront-hpa
   namespace: kyeol
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: storefront
-  minReplicas: 3
-  maxReplicas: 6
+  minReplicas: 2
+  maxReplicas: 10
   metrics:
     - type: Resource
       resource:
@@ -18,9 +15,3 @@ spec:
         target:
           type: Utilization
           averageUtilization: 70
-    - type: Resource
-      resource:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: 80

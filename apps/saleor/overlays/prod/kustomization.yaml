@@ -6,7 +6,6 @@ namespace: kyeol
 
 resources:
   - ../../base
-  - patches/hpa-patch.yaml
 
 labels:
   - pairs:
@@ -45,3 +44,9 @@ patches:
       kind: Deployment
       name: storefront
     path: patches/env-patch.yaml
+
+  # HPA Patch for PROD
+  - target:
+      kind: HorizontalPodAutoscaler
+      name: storefront-hpa
+    path: patches/hpa-patch.yaml
