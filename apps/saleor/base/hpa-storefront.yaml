@@ -1,0 +1,65 @@
+# Saleor Base: Storefront Horizontal Pod Autoscaler
+# HPA v2 - CPU 및 Memory 기반 오토스케일링
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: storefront-hpa
+  namespace: kyeol
+  labels:
+    app: storefront
+    app.kubernetes.io/name: storefront
+    app.kubernetes.io/part-of: saleor
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: storefront
+
+  # 최소/최대 레플리카 수
+  minReplicas: 2
+  maxReplicas: 10
+
+  # 메트릭 기준
+  metrics:
+    # CPU 사용률 기반 스케일링
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70  # CPU 70% 초과 시 스케일 아웃
+
+    # 메모리 사용률 기반 스케일링
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80  # 메모리 80% 초과 시 스케일 아웃
+
+  # 스케일링 동작 설정
+  behavior:
+    # 스케일 업 정책 (Pod 증가)
+    scaleUp:
+      stabilizationWindowSeconds: 30  # 30초 안정화 기간
+      policies:
+        - type: Percent
+          value: 100  # 현재 레플리카의 100%까지 한 번에 증가 가능
+          periodSeconds: 15  # 15초마다 평가
+        - type: Pods
+          value: 2  # 또는 최대 2개 Pod까지 한 번에 증가
+          periodSeconds: 15
+      selectPolicy: Max  # 위 정책 중 최대값 선택
+
+    # 스케일 다운 정책 (Pod 감소)
+    scaleDown:
+      stabilizationWindowSeconds: 300  # 5분 안정화 기간 (급격한 감소 방지)
+      policies:
+        - type: Percent
+          value: 50  # 현재 레플리카의 50%까지 한 번에 감소 가능
+          periodSeconds: 60  # 60초마다 평가
+        - type: Pods
+          value: 1  # 또는 최대 1개 Pod까지 한 번에 감소
+          periodSeconds: 60
+      selectPolicy: Min  # 위 정책 중 최소값 선택 (보수적 감소)
