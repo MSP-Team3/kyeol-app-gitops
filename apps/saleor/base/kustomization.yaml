@@ -10,6 +10,7 @@ resources:
   - deployment-storefront.yaml
   - service-storefront.yaml
   - ingress.yaml
+  - hpa-storefront.yaml
 
 commonLabels:
   app.kubernetes.io/part-of: saleor
