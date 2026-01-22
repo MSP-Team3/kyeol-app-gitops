@@ -1,14 +1,11 @@
 # HPA Patch - PROD
+# Base의 HPA 설정을 PROD 환경에 맞게 오버라이드
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: storefront-hpa
   namespace: kyeol
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: storefront
   minReplicas: 2
   maxReplicas: 5
   metrics:
@@ -18,19 +15,7 @@ spec:
         target:
           type: Utilization
           averageUtilization: 60
-    - type: Resource
-      resource:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: 70
   behavior:
-    scaleDown:
-      stabilizationWindowSeconds: 300
-      policies:
-        - type: Percent
-          value: 10
-          periodSeconds: 60
     scaleUp:
       stabilizationWindowSeconds: 0
       policies:
@@ -41,3 +26,9 @@ spec:
           value: 4
           periodSeconds: 15
       selectPolicy: Max
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Percent
+          value: 10
+          periodSeconds: 60
