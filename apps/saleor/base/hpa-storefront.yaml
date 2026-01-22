@@ -18,7 +18,7 @@ spec:
 
   # 최소/최대 레플리카 수
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 20  # 10 → 20 (Node 부족 상황 유발)
 
   # 메트릭 기준
   metrics:
@@ -28,28 +28,20 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 70  # CPU 70% 초과 시 스케일 아웃
-
-    # 메모리 사용률 기반 스케일링
-    - type: Resource
-      resource:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: 80  # 메모리 80% 초과 시 스케일 아웃
+          averageUtilization: 50  # 70% → 50% (더 빠른 트리거)
 
   # 스케일링 동작 설정
   behavior:
     # 스케일 업 정책 (Pod 증가)
     scaleUp:
-      stabilizationWindowSeconds: 30  # 30초 안정화 기간
+      stabilizationWindowSeconds: 0  # 30초 → 0초 (즉시)
       policies:
         - type: Percent
-          value: 100  # 현재 레플리카의 100%까지 한 번에 증가 가능
-          periodSeconds: 15  # 15초마다 평가
+          value: 200  # 100% → 200% (더 빠른 증가)
+          periodSeconds: 10  # 15초 → 10초
         - type: Pods
-          value: 2  # 또는 최대 2개 Pod까지 한 번에 증가
-          periodSeconds: 15
+          value: 5  # 2개 → 5개 (한 번에 더 많이)
+          periodSeconds: 10
       selectPolicy: Max  # 위 정책 중 최대값 선택
 
     # 스케일 다운 정책 (Pod 감소)

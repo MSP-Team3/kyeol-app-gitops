@@ -40,11 +40,11 @@ spec:
                   key: GITOPS_TOKEN
           resources:
             requests:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 400m      # 100m → 400m (Node 빨리 포화)
+              memory: 512Mi  # 128Mi → 512Mi
             limits:
-              cpu: 500m
-              memory: 512Mi
+              cpu: 1000m     # 500m → 1000m
+              memory: 1Gi    # 512Mi → 1Gi
           livenessProbe:
             httpGet:
               path: /
